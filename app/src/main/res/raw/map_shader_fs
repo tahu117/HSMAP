@@ -1,0 +1,16 @@
+#version 320 es
+
+precision highp float;
+uniform mat4 uniform_transform;
+uniform sampler2D uniform_texture;
+
+precision lowp float;
+in vec2 frag_texcoord;
+
+precision lowp float;
+out vec4 frag_output;
+
+void main()
+{
+    frag_output = vec4(texture(uniform_texture, frag_texcoord).rgb, 1.0);
+}

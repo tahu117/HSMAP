@@ -1,0 +1,18 @@
+#version 320 es
+
+precision highp float;
+uniform mat4 uniform_transform;
+uniform sampler2D uniform_texture;
+
+precision highp float;
+layout(location = 0) in vec2 vert_position;
+layout(location = 1) in vec2 vert_texcoord;
+
+precision lowp float;
+out vec2 frag_texcoord;
+
+void main()
+{
+    gl_Position = uniform_transform * vec4(vert_position, 0.0, 1.0);
+    frag_texcoord = vert_texcoord;
+}
